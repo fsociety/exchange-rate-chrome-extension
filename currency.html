@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <style>
+      :root {
+        --background-gradient: linear-gradient(30deg, #7E57C2 30%, #673AB7);
+        --gray: #34495e;
+        --darkgray: #2c3e50;
+      }
+      body {
+        color: #fff;
+        background: var(--background-gradient);
+      }
+      select {
+        appearance: none;
+        outline: 0;
+        border: 0;
+        box-shadow: none;
+        flex: 1;
+        padding: 0 1em;
+        color: #fff;
+        background-color: var(--darkgray);
+        background-image: none;
+        cursor: pointer;
+      }
+      select::-ms-expand {
+        display: none;
+      }
+      .select {
+        position: relative;
+        display: flex;
+        width: 10em;
+        height: 3em;
+        border-radius: .25em;
+        overflow: hidden;
+      }
+      .select::after {
+        content: '\25BC';
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1em;
+        background-color: #34495e;
+        transition: .25s all ease;
+        pointer-events: none;
+      }
+      .select:hover::after {
+        color: #f39c12;
+      }
+      .select-currency{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .select-currency > div:last-child{
+        margin-left: 5px;
+      }
+
+      .result{margin-top: 10px; white-space: nowrap;}
+      .result *{
+        display: inline-block;
+        font-size: 14px;
+      }
+      #exchange-rate{
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="select-currency">
+      <div>
+        <label for="from">From</label>
+        <div class="select">
+          <select name="" id="from">
+            <option value="TRY">TRY</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="to">To</label>
+        <div class="select">
+          <select name="" id="to">
+            <option value="TRY">TRY</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="result">
+      <span>Result: </span>
+      <div id="exchange-rate"></div>
+    </div>
+    <script src="exchange.js"></script>
+  </body>
+</html>
